@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_190952) do
     t.integer "score"
     t.string "comment"
     t.integer "movie_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,3 +1,7 @@
+Movie.destroy_all
+User.destroy_all
+Review.destroy_all
+
 puts "🌱 Seeding spices..."
 
 puts "Creating movies..."
@@ -11,7 +15,7 @@ puts "Creating users..."
 User.create(name: "Sunil Nilavarath", publication: "Variety")
 User.create(name: "Richard Brody", publication: "New Yorker")
 User.create(name: "Alissa Wilkinson", publication: "Vox")
-User.create(name: "Robert Daniels", publicatin: "Los Angeles Times")
+User.create(name: "Robert Daniels", publication: "Los Angeles Times")
 
 puts "Creating reviews..."
 Review.create(score: 91, comment: "Perfectly dark and gritty", movie_id: 1, user_id: 1)
