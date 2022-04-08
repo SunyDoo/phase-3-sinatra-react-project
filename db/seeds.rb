@@ -5,11 +5,11 @@ Review.destroy_all
 puts "🌱 Seeding spices..."
 
 puts "Creating movies..."
-Movie.create(title: "The Batman", genre: "Superhero", year: 2022)
-Movie.create(title: "Knives Out", genre: "Mystery", year: 2019)
-Movie.create(title: "Encanto", genre: "Animated", year: 2021)
-Movie.create(title: "The Conjuring", genre: "Horror", year: 2013)
-Movie.create(title: "Whiplash", genre: "Drama", year: 2014)
+Movie.create(title: "The Batman", genre: "Superhero", year: 2022, image: "https://upload.wikimedia.org/wikipedia/en/thumb/f/ff/The_Batman_%28film%29_poster.jpg/220px-The_Batman_%28film%29_poster.jpg")
+Movie.create(title: "Knives Out", genre: "Mystery", year: 2019, image: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Knives_Out_poster.jpeg/220px-Knives_Out_poster.jpeg")
+Movie.create(title: "Encanto", genre: "Animated", year: 2021, image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Encanto_poster.jpg/220px-Encanto_poster.jpg")
+Movie.create(title: "The Conjuring", genre: "Horror", year: 2013, image: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Conjuring_poster.jpg/220px-Conjuring_poster.jpg")
+Movie.create(title: "Whiplash", genre: "Drama", year: 2014, image: "https://upload.wikimedia.org/wikipedia/en/0/01/Whiplash_poster.jpg")
 
 puts "Creating users..."
 User.create(name: "Sunil Nilavarath", publication: "Variety")
