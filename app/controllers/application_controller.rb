@@ -35,26 +35,43 @@ class ApplicationController < Sinatra::Base
 
  
 
-  # post '/movies' do
-  #   movie = Movie.create(
-  #   title: params[:title],
-  #   genre: params[:genre],
-  #   year: params[:year],
-  #   image: params[:image]
-  #   )
-  #   message.to_json
-  # end
+  post '/movies' do
+    movie = Movie.create(
+    title: params[:title],
+    genre: params[:genre],
+    year: params[:year],
+    image: params[:image]
+    )
+    message.to_json
+  end
 
-  # patch '/reviews/:id' do
-  #   review = Review.find(params[:id])
-  #   review.update(body: params[:body])
-  #   review.to_json
-  # end
+  post '/reviews' do
+    review = Review.create(
+    movie_id: params[:movie_id],
+    score: params[:score],
+    comment: params[:comment],
+    user_id: params[:user_id]
+    )
+    message.to_json
+  end
 
-  # delete '/reviews/:id' do
-  #   review = Review.find(params[:id])
-  #   review.destroy
-  #   review.to_json
-  # end
+  patch '/reviews/:id' do
+    review = Review.find(params[:id])
+    review.update(score: params[:score])
+    review.update(comment: params[:comment])
+    review.to_json
+  end
+
+  delete '/movies/:id' do
+    movie = Movie.find(params[:id])
+    movie.destroy
+    movie.to_json
+  end
+
+  delete '/reviews/:id' do
+    review = Review.find(params[:id])
+    review.destroy
+    review.to_json
+  end
 
 end
