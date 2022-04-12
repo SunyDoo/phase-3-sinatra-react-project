@@ -15,14 +15,6 @@ class ApplicationController < Sinatra::Base
     movies = User.all
     movies.to_json(include: { reviews: { include: :movie } })
   end
-
-  
-  get '/users/:id' do
-    user = User.find(params[:id])
-
-    user.to_json(include: { reviews: { include: :movie } })
-  end
-
  
   post '/movies' do
     movie = Movie.create(
