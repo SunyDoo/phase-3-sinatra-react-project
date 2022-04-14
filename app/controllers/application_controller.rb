@@ -7,13 +7,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/reviews" do
-    movies = Review.all
-    movies.to_json
+    reviews = Review.all
+    reviews.to_json
   end
 
   get "/users" do
-    movies = User.all
-    movies.to_json(include: { reviews: { include: :movie } })
+    users = User.all
+    users.to_json(include: { reviews: { include: :movie } })
   end
  
   post '/movies' do
@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     year: params[:year],
     image: params[:image]
     )
-    message.to_json
+    movie.to_json
   end
 
   post '/reviews' do
@@ -33,14 +33,13 @@ class ApplicationController < Sinatra::Base
     comment: params[:comment],
     user_id: params[:user_id]
     )
-    message.to_json
+    review.to_json(include: :movie)
   end
 
   patch '/reviews/:id' do
     review = Review.find(params[:id])
-    review.update(score: params[:score])
-    review.update(comment: params[:comment])
-    review.to_json
+    review.update(score: params[:score], comment: params[:comment])
+    review.to_json(include: :movie)
   end
 
   delete '/movies/:id' do
